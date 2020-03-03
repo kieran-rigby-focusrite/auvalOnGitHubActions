@@ -1,0 +1,12 @@
+name: auval On GitHub Actions
+on: push
+
+jobs:
+  reproduce-problem:
+    name: Reproduce auval Problem on macOS
+    runs-on: macOS-latest
+    steps:
+      - name: Copy Audio Unit to Components Directory
+        run: ditto ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/
+      - name: Run auval
+        run: auval -t aufx Manu Test
