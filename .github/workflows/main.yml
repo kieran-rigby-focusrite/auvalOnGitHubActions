@@ -6,7 +6,9 @@ jobs:
     name: Reproduce auval Problem on macOS
     runs-on: macOS-latest
     steps:
+      - name: List Directory
+        run: ls -la
       - name: Copy Audio Unit to Components Directory
-        run: ditto ./ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/
+        run: ditto ./ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Run auval
         run: auval -t aufx Manu Test
