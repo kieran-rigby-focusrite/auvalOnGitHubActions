@@ -11,7 +11,7 @@ jobs:
         with:
           clean: true
       - name: Go to repo
-        run: cd $GITHUB_WORKSPACE/auvalOnGitHubActions
+        run: cd $GITHUB_WORKSPACE
       - name: Copy Audio Unit to Components Directory
         run: ditto ./ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Run auval
