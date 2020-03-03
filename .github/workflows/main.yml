@@ -13,7 +13,7 @@ jobs:
       - name: Go to Repository
         run: cd $GITHUB_WORKSPACE
       - name: Copy Audio Unit to Components Directory
-        run: cp -Rp ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
+        run: sudo cp -Rp ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Check Component is in Correct Directory
         run: |
           ls ~/Library/Audio/Plug-Ins/Components/
