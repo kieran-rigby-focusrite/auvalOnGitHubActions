@@ -10,13 +10,22 @@ jobs:
         uses: actions/checkout@v2
         with:
           clean: true
-      - name: Go to Repository
+      - name: Go to Repository Directory
         run: cd $GITHUB_WORKSPACE
+        # Audio units have be in specific directories for auval to pick them up
+        # Those directories are:
+        # ~/Library/Audio/Plug-Ins/Components/    OR
+        # /Library/Audio/Plug-Ins/Components/
       - name: Copy Audio Unit to Components Directory
         run: ditto ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Check Component is in Correct Directory
         run: |
           ls ~/Library/Audio/Plug-Ins/Components/
           ls ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
-      - name: Run auval
+      - name: List all recognized plugins with auval 
+        run: auval -a
+      - name: Run auval on Test Audio Unit
+        # When calling auval, you don't specify the audio unit using the file. 
+        # Instead you provide the plugin type ('aufx'), the manufacturer code ('Manu')
+        # and the plugin code ('test') which are set by the plugin manufacturer.
         run: auval -t aufx Manu Test
