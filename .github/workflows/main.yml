@@ -17,7 +17,7 @@ jobs:
         # ~/Library/Audio/Plug-Ins/Components/    OR
         # /Library/Audio/Plug-Ins/Components/
       - name: Copy Audio Unit to Components Directory
-        run: ditto ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
+        run: ditto ExamplePlugin.component /Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Check Component is in Correct Directory
         run: |
           ls ~/Library/Audio/Plug-Ins/Components/
