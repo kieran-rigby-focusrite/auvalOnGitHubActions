@@ -25,7 +25,7 @@ jobs:
       - name: Clear Audio Unit Cache
         run: rm -Rf ~/Library/Caches/AudioUnitCache/
       - name: List all recognized plugins with auval 
-        run: auval -a
+        run: auval -32 -a
       - name: Run auval on Test Audio Unit
         # When calling auval, you don't specify the audio unit using the file. 
         # Instead you provide the plugin type ('aufx'), the manufacturer code ('Manu')
