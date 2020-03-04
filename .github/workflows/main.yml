@@ -22,6 +22,8 @@ jobs:
         run: |
           ls ~/Library/Audio/Plug-Ins/Components/
           ls ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
+      - name: Clear Audio Unit Cache
+        run: rm -Rf ~/Library/Caches/AudioUnitCache/
       - name: List all recognized plugins with auval 
         run: auval -a
       - name: Run auval on Test Audio Unit
