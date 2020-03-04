@@ -20,8 +20,8 @@ jobs:
         run: sudo ditto ExamplePlugin.component /Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Check Component is in Correct Directory
         run: |
-          ls ~/Library/Audio/Plug-Ins/Components/
-          ls ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
+          ls /Library/Audio/Plug-Ins/Components/
+          ls /Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
       - name: List all recognized plugins with auval 
         run: auval -a
       - name: Run auval on Test Audio Unit
