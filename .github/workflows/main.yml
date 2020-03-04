@@ -4,7 +4,7 @@ on: push
 jobs:
   reproduce-problem:
     name: Reproduce auval Problem on macOS
-    runs-on: self-hosted
+    runs-on: macOS-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,4 +28,4 @@ jobs:
         # When calling auval, you don't specify the audio unit using the file. 
         # Instead you provide the plugin type ('aufx'), the manufacturer code ('Manu')
         # and the plugin code ('test') which are set by the plugin manufacturer.
-        run: auval -t aufx Manu Test
+        run: auval -r 10 -t aufx Manu Test
