@@ -4,7 +4,7 @@ on: push
 jobs:
   reproduce-problem:
     name: Reproduce auval Problem on macOS
-    runs-on: macOS-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,11 +17,11 @@ jobs:
         # ~/Library/Audio/Plug-Ins/Components/    OR
         # /Library/Audio/Plug-Ins/Components/
       - name: Copy Audio Unit to Components Directory
-        run: sudo ditto ExamplePlugin.component /Library/Audio/Plug-Ins/Components/ExamplePlugin.component
+        run: sudo ditto ExamplePlugin.component ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component
       - name: Check Component is in Correct Directory
         run: |
-          ls /Library/Audio/Plug-Ins/Components/
-          ls /Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
+          ls ~/Library/Audio/Plug-Ins/Components/
+          ls ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
       - name: List all recognized plugins with auval 
         run: auval -a
       - name: Run auval on Test Audio Unit
