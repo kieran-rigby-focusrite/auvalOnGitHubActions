@@ -23,9 +23,7 @@ jobs:
           ls ~/Library/Audio/Plug-Ins/Components/
           ls ~/Library/Audio/Plug-Ins/Components/ExamplePlugin.component/
       - name: Clear Audio Unit Cache
-        run: rm -Rf ~/Library/Caches/AudioUnitCache/
-      - name: Disable GateKeeper 
-        run: sudo spctl --master-disable
+        run: killall -9 AudioComponentRegistrar
       - name: List all recognized plugins with auval 
         run: auval -a
       - name: Run auval on Test Audio Unit
